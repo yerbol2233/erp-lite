@@ -11,3 +11,6 @@ const API_BASE_URL = window.ENV?.API_BASE_URL || 'http://127.0.0.1:8000/api';
 window.APP_CONFIG = {
     API_BASE_URL: API_BASE_URL,
 };
+
+// Для дебага
+console.log('API URL:', API_BASE_URL);
