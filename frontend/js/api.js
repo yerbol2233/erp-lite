@@ -4,7 +4,7 @@
  */
 
 // Получаем URL API из конфигурации (config.js)
-const API_BASE_URL = window.APP_CONFIG?.API_BASE_URL || 'http://127.0.0.1:8000/api';
+// const API_BASE_URL = window.APP_CONFIG?.API_BASE_URL; // Берем из глобальной конфигурации
 
 /**
  * Класс для работы с API.
@@ -14,6 +14,7 @@ class ApiClient {
     constructor() {
         // Токен хранится в localStorage
         this.token = localStorage.getItem('auth_token');
+        this.baseUrl = window.APP_CONFIG?.API_BASE_URL || 'https://erp-lite-backend-kgn5.onrender.com/api';
     }
 
     /**
@@ -48,7 +49,7 @@ class ApiClient {
      * @returns {Promise<Object>} - ответ сервера в JSON
      */
     async request(endpoint, options = {}) {
-        const url = `${API_BASE_URL}${endpoint}`;
+        const url = `${this.baseUrl}${endpoint}`;
 
         // Формируем заголовки
         const headers = {
@@ -117,7 +118,7 @@ class ApiClient {
         formData.append('username', email);
         formData.append('password', password);
 
-        const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        const response = await fetch(`${this.baseUrl}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
