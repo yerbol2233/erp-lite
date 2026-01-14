@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERP-Lite — Система автоматизации бизнеса</title>
     <meta name="description" content="Система учёта заказов, клиентов и финансов для малого и среднего бизнеса">
-    
+
     <!-- Подключаем Google Fonts: Inter для современного вида -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Основные стили -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Экран авторизации (показывается если нет токена) -->
     <div id="auth-screen" class="auth-screen">
@@ -22,13 +24,13 @@
                 <h1 class="auth-logo">📊 ERP-Lite</h1>
                 <p class="auth-subtitle">Система автоматизации бизнеса</p>
             </div>
-            
+
             <!-- Вкладки: Вход / Регистрация -->
             <div class="auth-tabs">
                 <button class="auth-tab active" data-tab="login">Вход</button>
                 <button class="auth-tab" data-tab="register">Регистрация</button>
             </div>
-            
+
             <!-- Форма входа -->
             <form id="login-form" class="auth-form">
                 <div class="form-group">
@@ -45,7 +47,7 @@
                 </button>
                 <p class="auth-error" id="login-error"></p>
             </form>
-            
+
             <!-- Форма регистрации -->
             <form id="register-form" class="auth-form" hidden>
                 <div class="form-group">
@@ -58,7 +60,8 @@
                 </div>
                 <div class="form-group">
                     <label for="register-password">Пароль</label>
-                    <input type="password" id="register-password" placeholder="Минимум 6 символов" required minlength="6">
+                    <input type="password" id="register-password" placeholder="Минимум 6 символов" required
+                        minlength="6">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     <span class="btn-text">Зарегистрироваться</span>
@@ -76,7 +79,7 @@
             <div class="sidebar-header">
                 <h1 class="logo">📊 ERP-Lite</h1>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <a href="#dashboard" class="nav-item active" data-page="dashboard">
                     <span class="nav-icon">📈</span>
@@ -99,7 +102,7 @@
                     <span class="nav-text">Платежи</span>
                 </a>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <div class="user-info" id="user-info">
                     <span class="user-name">Загрузка...</span>
@@ -141,7 +144,11 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- JavaScript -->
+    <!-- Vercel environment variables (генерируется при деплое) -->
+    <script src="js/env.js" onerror="console.log('env.js not found, using defaults')"></script>
+    <script src="js/config.js"></script>
     <script src="js/api.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>

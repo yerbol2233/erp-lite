@@ -1,0 +1,30 @@
+services:
+  # Бэкенд FastAPI
+  - type: web
+    name: erp-lite-backend
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: erp-lite-db
+          property: connectionString
+
+databases:
+  # PostgreSQL база данных
+  - name: erp-lite-db
+    region: oregon
+    plan: free
+    databaseName: erp_lite
+    user: erp_user

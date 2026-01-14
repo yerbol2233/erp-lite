@@ -3,7 +3,8 @@
  * Обёртка над fetch с авторизацией и обработкой ошибок.
  */
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api';
+// Получаем URL API из конфигурации (config.js)
+const API_BASE_URL = window.APP_CONFIG?.API_BASE_URL || 'http://127.0.0.1:8000/api';
 
 /**
  * Класс для работы с API.

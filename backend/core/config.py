@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     app_version: str = "0.1.0"
     
     # Подключение к базе данных
+    # В продакшене Railway автоматически устанавливает DATABASE_URL
     database_url: str = "sqlite:///./database.db"
     
     # JWT-настройки

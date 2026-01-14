@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "name": "erp-lite-frontend",
+    "builds": [
+        {
+            "src": "index.html",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
+    ],
+    "env": {
+        "API_BASE_URL": "@api_base_url"
+    }
+}

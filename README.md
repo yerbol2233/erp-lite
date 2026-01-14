@@ -2,7 +2,25 @@
 
 ERP-Lite — это легковесная система для автоматизации учета заказов, клиентов и товаров, разработанная на стеке Python (FastAPI) и Vanilla JS.
 
-## 🚀 Как протестировать платформу
+---
+
+## 🌐 Развёртывание в облаке
+
+### 🚀 Быстрый старт (15 минут)
+
+Для развёртывания фронтенда на Vercel и бэкенда на Railway следуйте инструкции:
+
+📖 **[QUICKSTART_RU.md](QUICKSTART_RU.md)** — Развёртывание за 15 минут
+
+### 📚 Подробные инструкции
+
+- 📘 **[DEPLOYMENT_GUIDE_RU.md](DEPLOYMENT_GUIDE_RU.md)** — Полная пошаговая инструкция с решением проблем
+- 🚂 **[backend/RAILWAY_DEPLOY_RU.md](backend/RAILWAY_DEPLOY_RU.md)** — Развёртывание бэкенда на Railway
+- 🌐 **[frontend/DEPLOY_RU.md](frontend/DEPLOY_RU.md)** — Развёртывание фронтенда на Vercel
+
+---
+
+## 🧪 Локальная разработка
 
 ### 1. Подготовка окружения
 Убедитесь, что у вас установлен **Python 3.10+** (проект тестировался на 3.14).
@@ -63,12 +81,52 @@ uvicorn main:app --reload --port 8000
 ---
 
 ## 🛠 Технологический стек
-- **Backend:** FastAPI, SQLAlchemy (ORM), Pydantic v2.
-- **Security:** JWT Authentication, Bcrypt.
-- **Database:** SQLite (aiosqlite).
-- **Frontend:** HTML5, CSS3 (Modern Dark Theme), Vanilla JavaScript.
+- **Backend:** FastAPI, SQLAlchemy (ORM), Pydantic v2, PostgreSQL/SQLite
+- **Security:** JWT Authentication, Bcrypt
+- **Frontend:** HTML5, CSS3 (Modern Dark Theme), Vanilla JavaScript
+- **Deployment:** Vercel (Frontend), Railway (Backend + PostgreSQL)
 
 ## 📁 Структура проекта
-- `backend/` — Серверная часть, API и логика БД.
-- `frontend/` — Веб-интерфейс (SPA на чистом JS).
-- `README.md` — Инструкция по запуску.
+```
+.
+├── backend/                  # Серверная часть (FastAPI)
+│   ├── api/                  # API endpoints (роутеры)
+│   ├── core/                 # Конфигурация, безопасность
+│   ├── db/                   # База данных и модели
+│   ├── models/               # SQLAlchemy модели
+│   ├── schemas/              # Pydantic схемы
+│   ├── main.py               # Точка входа
+│   ├── requirements.txt      # Python зависимости
+│   ├── Procfile              # Для Railway
+│   └── runtime.txt           # Версия Python
+│
+├── frontend/                 # Веб-интерфейс (SPA)
+│   ├── css/                  # Стили
+│   ├── js/                   # JavaScript
+│   │   ├── api.js            # API клиент
+│   │   ├── app.js            # Логика приложения
+│   │   └── config.js         # Конфигурация
+│   ├── index.html            # Главная страница
+│   ├── vercel.json           # Конфигурация Vercel
+│   └── DEPLOY_RU.md          # Инструкция по деплою
+│
+├── QUICKSTART_RU.md          # Быстрый старт (15 минут)
+├── DEPLOYMENT_GUIDE_RU.md    # Полная инструкция
+└── README.md                 # Этот файл
+```
+
+---
+
+## 📝 Лицензия
+
+MIT License
+
+---
+
+## 🤝 Поддержка
+
+Если возникли вопросы по развёртыванию или использованию:
+1. Проверьте соответствующую инструкцию в папке проекта
+2. Посмотрите логи в Railway/Vercel
+3. Проверьте консоль браузера (F12)
+
